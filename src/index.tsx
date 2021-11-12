@@ -5,6 +5,10 @@ import "./index.css";
 
 class App extends React.Component {
   
+  constructor(props: any) {
+    super(props);
+  }
+
   render() {
     window.navigator.geolocation.getCurrentPosition(
       (position) => console.log(position),
