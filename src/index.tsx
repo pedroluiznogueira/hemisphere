@@ -3,21 +3,22 @@ import ReactDOM from "react-dom";
 import HemisphereDisplay from "./HemisphereDisplay";
 import "./index.css";
 
-interface IProps {
-}
+interface IProps {}
 
 interface IState {
-  latitude: number
+  latitude: number;
 }
 
 class App extends React.Component<IProps, IState> {
   constructor(props: IProps) {
     super(props);
-    this.state = {latitude: 25};
-    window.navigator.geolocation
-      .getCurrentPosition(
-        (position) => console.log(position),
-        (error) => console.error(error)
+    this.state = { latitude: 25 };
+    window.navigator.geolocation.getCurrentPosition(
+      (position) => {
+        console.log(position)
+        this.setState({ latitude: position.coords.latitude });
+      },
+      (error) => console.error(error)
     );
   }
 
