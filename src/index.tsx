@@ -3,10 +3,17 @@ import ReactDOM from "react-dom";
 import HemisphereDisplay from "./HemisphereDisplay";
 import "./index.css";
 
-class App extends React.Component {
-  constructor(props: any) {
+interface IProps {
+}
+
+interface IState {
+  latitude: number
+}
+
+class App extends React.Component<IProps, IState> {
+  constructor(props: IProps) {
     super(props);
-    this.state = {latitude: null};
+    this.state = {latitude: 25};
   }
 
   render() {
@@ -17,7 +24,7 @@ class App extends React.Component {
 
     return (
       <>
-        {console.log(this.state)}
+        {this.state.latitude}
         <div>latitude:</div>
       </>
     );
