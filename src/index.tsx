@@ -12,10 +12,11 @@ interface IState {
 class App extends React.Component<IProps, IState> {
   constructor(props: IProps) {
     super(props);
-    this.state = { latitude: 25 };
+
+    this.state = { latitude: 0 };
+
     window.navigator.geolocation.getCurrentPosition(
       (position) => {
-        console.log(position)
         this.setState({ latitude: position.coords.latitude });
       },
       (error) => console.error(error)
@@ -23,12 +24,19 @@ class App extends React.Component<IProps, IState> {
   }
 
   render() {
-    return (
-      <>
-        {this.state.latitude}
-        <div>latitude:</div>
-      </>
-    );
+    if (this.state.latitude) {
+      return (
+        <>
+          <div>latitude: {this.state.latitude}</div>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <div>latitude: First time rendering...</div>
+        </>
+      );
+    }
   }
 }
 
