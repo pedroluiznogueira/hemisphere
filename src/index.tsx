@@ -4,9 +4,9 @@ import HemisphereDisplay from "./HemisphereDisplay";
 import "./index.css";
 
 class App extends React.Component {
-  
   constructor(props: any) {
     super(props);
+    this.state = {latitude: null};
   }
 
   render() {
@@ -15,7 +15,12 @@ class App extends React.Component {
       (error) => console.error(error)
     );
 
-    return <div>latitude:</div>;
+    return (
+      <>
+        {console.log(this.state)}
+        <div>latitude:</div>
+      </>
+    );
   }
 }
 
