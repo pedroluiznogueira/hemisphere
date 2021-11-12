@@ -7,19 +7,25 @@ interface IProps {}
 
 interface IState {
   latitude: number;
+  errorMessage: string;
 }
 
 class App extends React.Component<IProps, IState> {
   constructor(props: IProps) {
     super(props);
 
-    this.state = { latitude: 0 };
+    this.state = { 
+      latitude: 0,
+      errorMessage: ''
+    };
 
     window.navigator.geolocation.getCurrentPosition(
       (position) => {
-        this.setState({ latitude: position.coords.latitude });
+        this.setState({latitude: position.coords.latitude});
       },
-      (error) => console.error(error)
+      (error) => {
+        this.setState({errorMessage: 'Not allowed to fetch the location'});
+      }
     );
   }
 
@@ -33,7 +39,7 @@ class App extends React.Component<IProps, IState> {
     } else {
       return (
         <>
-          <div>latitude: First time rendering...</div>
+          <div>{this.state.errorMessage}</div>
         </>
       );
     }
