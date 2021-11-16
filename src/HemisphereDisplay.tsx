@@ -1,9 +1,9 @@
 import React from 'react';
 
-const HemisphereDisplay = () => {
+const HemisphereDisplay = (props: any) => {
     return(
         <div>
-            This is HemisphereDisplay component
+            {props.latitude}
         </div>
     )
 }

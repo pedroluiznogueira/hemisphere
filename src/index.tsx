@@ -34,21 +34,11 @@ class App extends React.Component<IProps, IState> {
     );
   }
 
-  // executed every time props or state changes, load data after state is updated
-  componentDidUpdate() {
-    console.log("component did update");
-  }
-
-  // used for removing the component from the screen
-  componentWillUnmount() {
-
-  }
-
   render() {
     if (this.state.latitude) {
       return (
         <>
-          <div>latitude: {this.state.latitude}</div>
+          <div> <HemisphereDisplay latitude={this.state.latitude} /> </div>
         </>
       );
     } else if (this.state.errorMessage) {
