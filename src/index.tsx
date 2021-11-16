@@ -29,6 +29,21 @@ class App extends React.Component<IProps, IState> {
     );
   }
 
+  // executed only one time when the component gets rendered, load data
+  componentDidMount() {
+
+  }
+
+  // executed every time props or state changes, load data after state is updated
+  componentDidUpdate() {
+
+  }
+
+  // used for removing the component from the screen
+  componentWillUnmount() {
+
+  }
+
   render() {
     if (this.state.latitude) {
       return (
