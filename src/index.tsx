@@ -18,6 +18,11 @@ class App extends React.Component<IProps, IState> {
       latitude: 0,
       errorMessage: ''
     };
+  }
+
+  // executed only one time when the component gets rendered, load data
+  componentDidMount() {
+    console.log("component did mount");
 
     window.navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -29,14 +34,9 @@ class App extends React.Component<IProps, IState> {
     );
   }
 
-  // executed only one time when the component gets rendered, load data
-  componentDidMount() {
-
-  }
-
   // executed every time props or state changes, load data after state is updated
   componentDidUpdate() {
-
+    console.log("component did update");
   }
 
   // used for removing the component from the screen
