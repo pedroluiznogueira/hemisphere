@@ -21,11 +21,7 @@ class App extends React.Component<IProps, IState> {
 
     window.navigator.geolocation.getCurrentPosition(
       (position) => {
-        this.setState(
-          {
-            latitude: position.coords.latitude,
-            errorMessage: 'Nothing wrong'
-          });
+        this.setState({latitude: position.coords.latitude});
       },
       (error) => {
         this.setState({errorMessage: 'Not allowed to fetch the location'});
@@ -38,13 +34,18 @@ class App extends React.Component<IProps, IState> {
       return (
         <>
           <div>latitude: {this.state.latitude}</div>
-          <div>errorMessage: {this.state.errorMessage}</div>
+        </>
+      );
+    } else if (this.state.errorMessage) {
+      return (
+        <>
+          <div>{this.state.errorMessage}</div>
         </>
       );
     } else {
       return (
         <>
-          <div>{this.state.errorMessage}</div>
+          <div>Loading...</div>
         </>
       );
     }
