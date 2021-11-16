@@ -1,9 +1,12 @@
 import React from 'react';
 
-const HemisphereDisplay = (props: any) => {
+const HemisphereDisplay = ({latitude}: any) => {
+
+    const hemisphere = latitude > 0 ? 'nothern' : 'southern'
+
     return(
         <div>
-            {props.latitude}
+            {hemisphere}
         </div>
     )
 }
